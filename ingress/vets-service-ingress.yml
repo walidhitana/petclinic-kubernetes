@@ -9,8 +9,7 @@ metadata:
     app: vets-service
 spec:
   rules:
-  - host: petclinic.com
-    http:
+  - http:
       paths:
       - pathType: ImplementationSpecific
         path: /api/vet(/|$)(.*)
