@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: customers-service-ingress
+  name: customers-service
   namespace: spring-petclinic
 spec:
   ingressClassName: "azure-application-gateway"
