@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: spring-petclinic
   name: vets-service-ingress
+  namespace: spring-petclinic
   annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
+    kubernetes.io/ingress.class: "azure/application-gateway"
 spec:
   rules:
   - http:
       paths:
-      - path: /api/vet(/|$)(.*)
-        pathType: Prefix
+      - pathType: Prefix
+        path: "/api/vet/"
         backend:
           service:
             name: vets-service
