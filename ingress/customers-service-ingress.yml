@@ -1,23 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: spring-petclinic
   name: customers-service-ingress
+  namespace: spring-petclinic
   annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
+    kubernetes.io/ingress.class: "azure/application-gateway"
 spec:
   rules:
   - http:
       paths:
-      - path: /api/gateway(/|$)(.*)
-        pathType: Prefix
+      - pathType: Prefix
+        path: "/api/gateway/"
         backend:
           service:
             name: customers-service
             port:
               number: 8081
-      - path: /api/customer(/|$)(.*)
-        pathType: Prefix
+      - pathType: Prefix
+        path: "/api/customer/"
         backend:
           service:
             name: customers-service
